@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LóngBot - Chatbot inteligente inspirado en la filosofía china, construido con Django y redes neuronales.">
+    <title>龙 LóngBot — Chatbot Inteligente</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'chatbot/css/style.css' %}">
+</head>
+<body>
+    <!-- Fondo decorativo con partículas -->
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- Contenedor principal -->
+    <div class="app-container">
+
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-ornament left">☯</div>
+            <div class="header-content">
+                <div class="bot-avatar-header">
+                    <span class="dragon-icon">龍</span>
+                    <div class="pulse-ring"></div>
+                </div>
+                <h1 class="bot-title">LóngBot</h1>
+                <p class="bot-subtitle">智慧聊天 — Chatbot de Sabiduría</p>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">En línea</span>
+                </div>
+            </div>
+            <div class="header-ornament right">☯</div>
+        </header>
+
+        <!-- Área de la red neuronal (info) -->
+        <div class="nn-info-bar" id="nnInfoBar">
+            <div class="nn-layer" data-layer="entrada">
+                <span class="layer-icon">📥</span>
+                <span class="layer-name">Entrada</span>
+                <span class="layer-detail">TF-IDF</span>
+            </div>
+            <div class="nn-arrow">→</div>
+            <div class="nn-layer" data-layer="oculta1">
+                <span class="layer-icon">🧠</span>
+                <span class="layer-name">Oculta 1</span>
+                <span class="layer-detail">128 ReLU</span>
+            </div>
+            <div class="nn-arrow">→</div>
+            <div class="nn-layer" data-layer="oculta2">
+                <span class="layer-icon">🧠</span>
+                <span class="layer-name">Oculta 2</span>
+                <span class="layer-detail">64 ReLU</span>
+            </div>
+            <div class="nn-arrow">→</div>
+            <div class="nn-layer" data-layer="salida">
+                <span class="layer-icon">📤</span>
+                <span class="layer-name">Salida</span>
+                <span class="layer-detail" id="intentCount">14 clases</span>
+            </div>
+        </div>
+
+        <!-- Área de chat -->
+        <main class="chat-area" id="chatArea">
+            <!-- Mensaje de bienvenida -->
+            <div class="welcome-message">
+                <div class="welcome-dragon">🐉</div>
+                <h2>Bienvenido al Camino de la Sabiduría</h2>
+                <p>Soy <strong>LóngBot</strong>, tu asistente virtual inspirado en la filosofía china.</p>
+                <div class="quick-actions">
+                    <button class="quick-btn" onclick="sendQuickMessage('¿Qué puedes hacer?')">💡 ¿Qué puedes hacer?</button>
+                    <button class="quick-btn" onclick="sendQuickMessage('Cuéntame un proverbio chino')">🎋 Filosofía China</button>
+                    <button class="quick-btn" onclick="sendQuickMessage('¿Qué hora es?')">🕐 Hora</button>
+                    <button class="quick-btn" onclick="sendQuickMessage('Cuéntame un chiste')">😄 Chiste</button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Barra de intención detectada -->
+        <div class="intent-bar" id="intentBar">
+            <span class="intent-label">Intención:</span>
+            <span class="intent-value" id="intentValue">—</span>
+            <span class="confidence-label">Confianza:</span>
+            <span class="confidence-value" id="confidenceValue">—</span>
+            <div class="confidence-bar-container">
+                <div class="confidence-bar" id="confidenceBar"></div>
+            </div>
+        </div>
+
+        <!-- Input de mensaje -->
+        <footer class="chat-input-container">
+            <div class="input-wrapper">
+                <div class="input-ornament">竹</div>
+                <input 
+                    type="text" 
+                    id="messageInput" 
+                    class="chat-input" 
+                    placeholder="Escribe tu mensaje aquí..."
+                    autocomplete="off"
+                    maxlength="500"
+                >
+                <button id="sendButton" class="send-btn" onclick="sendMessage()">
+                    <span class="send-icon">➤</span>
+                </button>
+            </div>
+            <p class="footer-quote" id="footerQuote">
+                «El viaje de mil millas comienza con un solo paso» — Lao Tse
+            </p>
+        </footer>
+    </div>
+
+    <script src="{% static 'chatbot/js/chat.js' %}"></script>
+</body>
+</html>
