@@ -168,21 +168,43 @@ Las pruebas cubren:
 
 ---
 
-## 🎨 Diseño Visual
+## 🧮 Calculadora Integrada
 
-El diseño está inspirado en la **filosofía y estética china**:
+LóngBot incluye una **calculadora inteligente** que detecta operaciones matemáticas en lenguaje natural:
 
-- **Jade** (`#2d6a4f`) — Mensajes del bot
-- **Rojo Imperial** (`#8B0000`) — Mensajes del usuario
-- **Dorado** (`#d4a574`) — Títulos y acentos
-- **Negro Tinta** (`#0a0a0f`) — Fondo principal
+```
+Tú:  5 + 3                → 🔢 Resultado: 8
+Tú:  suma 10 y 20         → 🔢 Resultado: 30
+Tú:  multiplica 4 por 7   → 🔢 Resultado: 28
+Tú:  divide 100 entre 4   → 🔢 Resultado: 25
+Tú:  cuanto es 9 + 11     → 🔢 Resultado: 20
+Tú:  restale 5 a 20       → 🔢 Resultado: 15
+```
 
-Elementos decorativos:
-- Partículas flotantes (luciérnagas decorativas)
-- Animaciones suaves de entrada
-- Barra visual de la arquitectura de la red neuronal
-- Citas filosóficas rotativas en el footer
-- Caracteres chinos ornamentales (龍, 竹, ☯)
+**Formatos soportados:**
+| Formato | Ejemplo |
+|---|---|
+| Símbolos | `5 + 3`, `10 - 4`, `7 * 8`, `100 / 5` |
+| Verbos | `suma 10 y 20`, `resta 50 y 15` |
+| Palabras | `5 mas 3`, `8 por 6`, `100 entre 4` |
+| Pregunta | `cuanto es 9 + 11` |
+| Sumale/Restale | `sumale 5 a 10`, `restale 2 a 8` |
+
+---
+
+## 📚 Documentación Técnica
+
+El proyecto incluye documentación completa en la carpeta `doc/`:
+
+| Documento | Descripción |
+|---|---|
+| `01_diagrama_casos_de_uso.md` | Interacciones actor-sistema |
+| `02_diagrama_arquitectura.md` | Arquitectura en 5 capas |
+| `03_diagrama_secuencia.md` | Flujo de mensajes y entrenamiento |
+| `04_diagrama_clases.md` | Clases UML con relaciones |
+| `05_diagrama_flujo.md` | Flujo de procesamiento completo |
+| `06_diagrama_entidad_relacion.md` | Modelo de base de datos |
+| `Documentacion_LongBot_IEEE_APA.docx` | 📄 **Documento formal IEEE 830 / APA** |
 
 ---
 
@@ -194,6 +216,7 @@ Elementos decorativos:
 | **scikit-learn 1.8.0** | Red neuronal MLPClassifier |
 | **NumPy 2.4.2** | Cálculos matriciales |
 | **Unidecode** | Normalización de acentos |
+| **python-docx** | Generación de documentación Word |
 | **HTML/CSS/JS** | Frontend responsivo |
 | **SQLite** | Base de datos (historial) |
 
