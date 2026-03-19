@@ -91,7 +91,7 @@ INTENCIONES = {
             "menu", "instrucciones"
         ],
         "respuestas": [
-            "📜 **Puedo ayudarte con lo siguiente:**\n\n• 🕐 Decirte la **hora** actual\n• 📅 Decirte la **fecha** de hoy\n• 🧠 Explicarte sobre **Inteligencia Artificial**\n• 😄 Contarte un **chiste**\n• 🌤️ Hablarte del **clima**\n• 🎋 Compartir **filosofía china**\n• 💬 Conversar contigo\n\n¡Pregúntame lo que quieras!"
+            "📜 **Puedo ayudarte con lo siguiente:**\n\n• 🕐 Decirte la **hora** actual\n• 📅 Decirte la **fecha** de hoy\n• 🧠 Explicarte sobre **Inteligencia Artificial**\n• 😄 Contarte un **chiste**\n• 🌤️ Hablarte del **clima**\n• 🎋 Compartir **filosofía china**\n• 🔢 **Calculadora**: suma, resta, multiplicación y división\n• 💬 Conversar contigo\n\nEscribe operaciones como: **5 + 3**, **suma 10 y 20**, **multiplica 4 por 7**"
         ]
     },
 
@@ -190,14 +190,29 @@ INTENCIONES = {
         ]
     },
 
-    "matematicas": {
+    "calculadora": {
         "patrones": [
-            "matematicas", "calculo", "suma", "resta", "multiplicacion",
-            "division", "cuanto es", "resolver", "ecuacion"
+            "calculadora", "calcular", "calcula", "cuanto es", "cuanto da",
+            "sumame", "restame", "multiplicame", "divideme",
+            "operacion", "operaciones", "operacion matematica",
+            "necesito calcular", "puedes calcular", "hacer cuentas",
+            "sumar numeros", "restar numeros", "multiplicar numeros",
+            "dividir numeros"
         ],
         "respuestas": [
-            "🔢 Las matemáticas son el lenguaje del universo. Los antiguos chinos desarrollaron el ábaco hace más de 2000 años. Aunque no soy una calculadora, puedo orientarte. ¿Qué necesitas resolver?",
-            "📐 Como decía **Pitágoras**: 'Todo es número.' Los chinos inventaron conceptos matemáticos fundamentales siglos antes que Occidente. ¿En qué puedo ayudarte?"
+            "🔢 ¡Soy tu calculadora!\n\nPuedes escribirme operaciones de varias formas:\n• **5 + 3** (con símbolos)\n• **suma 10 y 20** (con verbos)\n• **4 por 7** (con palabras)\n• **cuanto es 100 / 5** (preguntando)\n\nSoporto: **suma (+)**, **resta (-)**, **multiplicación (*)** y **división (/)**. ¡Prueba!",
+            "🧮 ¡Puedo ayudarte con cálculos! Escríbeme la operación, por ejemplo:\n• **25 + 17**\n• **resta 50 y 15**\n• **8 por 6**\n• **divide 100 entre 4**\n\nComo decía Pitágoras: *‘Todo es número.’* ☯️"
+        ]
+    },
+
+    "matematicas": {
+        "patrones": [
+            "matematicas", "ecuacion", "algebra", "geometria",
+            "trigonometria", "derivada", "integral"
+        ],
+        "respuestas": [
+            "🔢 Las matemáticas son el lenguaje del universo. Los antiguos chinos desarrollaron el ábaco hace más de 2000 años. ¡Puedo hacer cálculos básicos! Escribe algo como **5 + 3** o **multiplica 4 por 7**.",
+            "📚 Como decía **Pitágoras**: ‘Todo es número.’ Puedo resolver sumas, restas, multiplicaciones y divisiones. ¡Prueba!"
         ]
     }
 }

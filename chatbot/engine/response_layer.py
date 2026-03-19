@@ -15,6 +15,7 @@ from .data_layer import (
 )
 from .processing_layer import ProcesadorTexto
 from .intelligence_layer import RedNeuronal
+from .calculator import detectar_operacion, es_operacion_matematica
 
 
 # Umbral mínimo de confianza para aceptar una predicción
@@ -90,6 +91,10 @@ class MotorChatbot:
         """
         Procesa un mensaje del usuario y genera una respuesta.
 
+        Flujo:
+        1. Verificar si es una operación matemática (calculadora)
+        2. Si no, usar la red neuronal para detectar intención
+
         Args:
             mensaje: Texto escrito por el usuario
 
@@ -99,10 +104,21 @@ class MotorChatbot:
         if not self._entrenado:
             self.entrenar()
 
-        # Vectorizar el mensaje del usuario
-        X = self.procesador.vectorizar_uno(mensaje)
+        # Paso 1: Verificar si es una operación matemática
+        # Usar texto original (no normalizado) porque los operadores +, -, *, / se
+        # eliminan durante la normalización al ser tratados como puntuación
+        texto_original = mensaje.lower().strip()
+        if es_operacion_matematica(texto_original):
+            resultado_calc = detectar_operacion(texto_original)
+            if resultado_calc and resultado_calc.get('respuesta'):
+                return {
+                    "respuesta": resultado_calc['respuesta'],
+                    "intencion": f"calculadora_{resultado_calc.get('operacion', 'op')}",
+                    "confianza": 1.0
+                }
 
-        # Predecir intención
+        # Paso 2: Usar red neuronal para detectar intención
+        X = self.procesador.vectorizar_uno(mensaje)
         intencion, confianza = self.red_neuronal.predecir(X)
 
         # Decidir respuesta según confianza

@@ -20,13 +20,15 @@
 ### ✨ Características
 
 - 🧠 **Red neuronal MLP** con 2 capas ocultas (128/64 neuronas)
-- 🎯 **14 intenciones** detectadas automáticamente
+- 🎯 **16 intenciones** detectadas automáticamente
+- 🔢 **Calculadora integrada** (suma, resta, multiplicación, división)
 - 📊 **Vectorización TF-IDF** para procesamiento de texto
 - 🏮 **Interfaz elegante** inspirada en filosofía china
 - 📱 **Diseño responsivo** (móvil y escritorio)
 - ✨ **Animaciones suaves** (partículas, burbujas, transiciones)
 - 🔄 **Respuestas dinámicas** (hora y fecha en tiempo real)
 - 🎋 **Citas filosóficas chinas** rotativas
+- 📄 **Documentación IEEE/APA** en formato Word
 
 ---
 
@@ -57,7 +59,7 @@ El sistema sigue una **arquitectura modular de 4 capas**, donde cada nivel tiene
 | Entrada | TF-IDF (variable) | — |
 | Oculta 1 | 128 | ReLU |
 | Oculta 2 | 64 | ReLU |
-| Salida | 14 (intenciones) | Softmax |
+| Salida | 16 (intenciones) | Softmax |
 
 ---
 
@@ -83,7 +85,8 @@ Mini-Chatbot/
     │   ├── data_layer.py         # Intenciones y respuestas
     │   ├── processing_layer.py   # Normalización + TF-IDF
     │   ├── intelligence_layer.py # Red neuronal MLP
-    │   └── response_layer.py     # Orquestador principal
+    │   ├── response_layer.py     # Orquestador principal
+    │   └── calculator.py         # Calculadora integrada
     ├── templates/chatbot/
     │   └── index.html        # Interfaz del chat
     └── static/chatbot/
@@ -160,6 +163,8 @@ Las pruebas cubren:
 | 12 | Filosofía | "dime de Confucio" | Cita filosófica china |
 | 13 | Creador | "quién te creó" | Info del proyecto |
 | 14 | Música | "recomienda música" | Recomendación musical |
+| 15 | **Calculadora** | "5 + 3", "suma 10 y 20" | **Resultado de operación** |
+| 16 | Matemáticas | "ecuación", "álgebra" | Info sobre matemáticas |
 
 ---
 
